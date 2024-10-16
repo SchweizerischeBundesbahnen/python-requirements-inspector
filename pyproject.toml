@@ -1,17 +1,21 @@
 [tool.poetry]
-name = "open-source-polarion-python-repo-template"
-version = "0.1.0"
+name = "python-requirements-inspector"
+version = "3.0.1"
 description = ""
 authors = [
     "SBB Polarion Team <polarion-opensource@sbb.ch>",
 ]
 license = "Apache License 2.0"
 readme = "README.md"
-homepage = "https://github.com/SchweizerischeBundesbahnen/open-source-polarion-python-repo-template"
-repository = "https://github.com/SchweizerischeBundesbahnen/open-source-polarion-python-repo-template"
+homepage = "https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector"
+repository = "https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+spacy = "^3.7"
+spacy-language-detection = "^0.2.1"
+de-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/de_core_news_md-3.7.0/de_core_news_md-3.7.0-py3-none-any.whl"}
+en-core-web-md = {url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.7.1/en_core_web_md-3.7.1-py3-none-any.whl"}
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^4.0.0"
@@ -47,6 +51,11 @@ extend-select = [
     "SIM",    # flake8-simplify
     "T20",    # flake8-print
     "ERA",    # eradicate
+]
+
+[tool.ruff.lint.per-file-ignores]
+"python_requirements_inspector/main.py" = [
+    "T201" # No prints
 ]
 "tests/*" = [
     "S101" # No assert rule (bandit)

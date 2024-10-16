@@ -1,8 +1,67 @@
-# <<TITLE>>
-<<Short Description>>
+# Python module to inspect any type of functional or non-functional requirements
 
-## Build
+This module uses [spaCy](https://github.com/explosion/spaCy) to inspect requirements written in English or German.
+For each requirement a report will be generated with information about the complexity, usage of weak words, usage of non-passive sentences, etc
 
-## Installation
 
-## Configuration
+# How to test and build
+This module can be produced using poetry:
+```bash
+poetry install
+poetry run pre-commit run -a
+poetry run tox
+poetry build
+```
+
+# How to install
+## Poetry project
+```bash
+poetry add https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/releases/download/4.0.0/python_requirements_inspector-4.0.0-py3-none-any.whl
+```
+
+# How to use (example)
+## Inputs are defined in inputs.json
+```json
+[
+  {
+    "id": "requirements1",
+    "title": "I'm a title without a processword",
+    "description":"I'm a description for testing with a weakword accordingly",
+    "language":"en"
+  },
+  {
+    "id": "requirements2",
+    "title": "Ich bin ein Titel ohne Processwort",
+    "description":"öüäß Ich bin eine Beschreibung mit dem Weakword entsprechend und Umlauts.",
+    "language":"de"
+  }
+]
+```
+## Execute
+```bash
+python -m python_requirements_inspector.main inputs.json
+```
+## Outputs will be returned in outputs.json
+```json
+[
+  {"id": "requirements1",
+    "language": "en",
+    "smellDescription": "In TITLE missingProcessword: Title contains no process word\nIn DESCRIPTION Sentence 1 I'm a\u2026 smellWeakword: accordingly [9] \n",
+    "smellComplex": 0,
+    "smellPassive": 0,
+    "smellWeakword": 1,
+    "smellComparative": 0,
+    "missingProcessword": true
+  },
+  {
+    "id": "requirements2",
+    "language": "de",
+    "smellDescription": "In TITLE missingProcessword: Title contains no process word\nIn DESCRIPTION Sentence 1 \u00f6\u00fc\u00e4\u00df Ich bin\u2026 smellWeakword: entsprechend [8] \n",
+    "smellComplex": 0,
+    "smellPassive": 0,
+    "smellWeakword": 1,
+    "smellComparative": 0,
+    "missingProcessword": true
+  }
+]
+```

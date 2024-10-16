@@ -44,7 +44,6 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ needs.release-please.outputs.release_created == 'true' }}
     permissions:
-#      id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing for PyPI
       contents: write  # Required for uploading artifacts to GitHub release
     steps:
       - name: 📄 Checkout code
@@ -66,13 +65,3 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh release upload "${{ needs.release-please.outputs.version }}" dist/*.{tar.gz,whl}
-#      - name: 📦 Publish artifacts to PyPI/TestPyPI
-#        env:
-#          name: testpypi
-#          url: https://test.pypi.org/p/python-requirements-inspector
-#          name: pypi
-#          url: https://pypi.org/p/python-requirements-inspector
-#        uses: pypa/gh-action-pypi-publish@release/v1
-#        with:
-#          repository-url: https://test.pypi.org/legacy/  # it must be removed when publishing to PyPI
-#          verbose: true
