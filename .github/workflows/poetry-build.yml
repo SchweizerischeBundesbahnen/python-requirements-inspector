@@ -4,7 +4,8 @@ on:
   push:
     branches: ['**/**']
   pull_request:
-    types: [opened, synchronize, reopened]
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
 jobs:
   verify-with-tox:
     runs-on: ubuntu-latest
@@ -24,15 +25,28 @@ jobs:
         run: poetry install
       - name: Run tests
         run: poetry run tox
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v3
+      - name: SonarCloud Scan for PR
+        uses: sonarsource/sonarcloud-github-action@v3
+        if: github.event_name == 'pull_request'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
         with:
-          args: >
-            -Dsonar.branch.name=${{ env.BRANCH_NAME }}
+          args: |
+            -Dsonar.pullrequest.base=${{ github.base_ref }}
+            -Dsonar.pullrequest.branch=${{ BRANCH_NAME }}
+            -Dsonar.pullrequest.key=${{ github.event.issue.number }}
+      - name: SonarCloud Scan for Push
+        uses: sonarsource/sonarcloud-github-action@v3
+        if: github.event_name == 'push'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+        with:
+          args: |
+            -Dsonar.branch.name=${{ BRANCH_NAME }}
   release-please:
     needs: verify-with-tox
     runs-on: ubuntu-latest
