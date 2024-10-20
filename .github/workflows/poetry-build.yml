@@ -3,6 +3,8 @@ name: poetry-build
 on:
   push:
     branches: ['**/**']
+  pull_request:
+    types: [opened, synchronize, reopened]
 jobs:
   verify-with-tox:
     runs-on: ubuntu-latest
