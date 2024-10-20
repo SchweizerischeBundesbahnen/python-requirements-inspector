@@ -51,8 +51,4 @@ if __name__ == "__main__":
     json_file_path = args.jsonfile
 
     output_file_path = main(json_file_path)
-    # temporary test for code coverage with sonar
-    if output_file_path:
-        print(output_file_path)
-    else:
-        print("file not found")
+    print(output_file_path)
