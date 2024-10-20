@@ -28,8 +28,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-        args: >
-          -Dsonar.branch.name=${{ env.BRANCH_NAME }}
+        with:
+          args: >
+            -Dsonar.branch.name=${{ env.BRANCH_NAME }}
   release-please:
     needs: verify-with-tox
     runs-on: ubuntu-latest
