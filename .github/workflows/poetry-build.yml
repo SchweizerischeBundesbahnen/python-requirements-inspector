@@ -10,7 +10,7 @@ jobs:
       - name: 📄 Checkout code
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871  # v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: 🧱 Install Poetry
         run: curl -sSL https://install.python-poetry.org | python3 -
       - name: 🧱 Setup Python
@@ -25,7 +25,11 @@ jobs:
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v3
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+        args: >
+          -Dsonar.branch.name=${{ env.BRANCH_NAME }}
   release-please:
     needs: verify-with-tox
     runs-on: ubuntu-latest
