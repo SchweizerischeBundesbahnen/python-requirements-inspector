@@ -35,7 +35,7 @@ jobs:
         with:
           args: |
             -Dsonar.pullrequest.base=${{ github.base_ref }}
-            -Dsonar.pullrequest.branch=${{ BRANCH_NAME }}
+            -Dsonar.pullrequest.branch=${{ env.BRANCH_NAME }}
             -Dsonar.pullrequest.key=${{ github.event.issue.number }}
       - name: SonarCloud Scan for Push
         uses: sonarsource/sonarcloud-github-action@v3
@@ -46,7 +46,7 @@ jobs:
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
         with:
           args: |
-            -Dsonar.branch.name=${{ BRANCH_NAME }}
+            -Dsonar.branch.name=${{ env.BRANCH_NAME }}
   release-please:
     needs: verify-with-tox
     runs-on: ubuntu-latest
