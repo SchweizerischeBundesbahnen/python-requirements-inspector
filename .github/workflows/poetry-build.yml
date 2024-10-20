@@ -36,7 +36,7 @@ jobs:
           args: |
             -Dsonar.pullrequest.base=${{ github.base_ref }}
             -Dsonar.pullrequest.branch=${{ env.BRANCH_NAME }}
-            -Dsonar.pullrequest.key=${{ github.event.issue.number }}
+            -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
       - name: SonarCloud Scan for Push
         uses: sonarsource/sonarcloud-github-action@v3
         if: github.event_name == 'push'
