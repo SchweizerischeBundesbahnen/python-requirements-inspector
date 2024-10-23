@@ -4,6 +4,7 @@ Application entry point
 
 import argparse
 import json
+import logging
 import tempfile
 from pathlib import Path
 
@@ -41,7 +42,7 @@ def main(json_path: str) -> str:
     return output_file.name
 
 
-if __name__ == "__main__":
+def run() -> None:
     # Set up the command-line argument parser
     parser = argparse.ArgumentParser(description="Analyses workitem data provided by a json file.")
     parser.add_argument("jsonfile", type=str, help="path to the json file")
@@ -51,4 +52,9 @@ if __name__ == "__main__":
     json_file_path = args.jsonfile
 
     output_file_path = main(json_file_path)
-    print(output_file_path)
+    logging.basicConfig(level=logging.INFO)
+    logging.getLogger("python-requirements-inspector").info(f" Output file {output_file_path}")
+
+
+if __name__ == "__main__":
+    run()
