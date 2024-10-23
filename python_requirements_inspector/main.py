@@ -4,7 +4,6 @@ Application entry point
 
 import argparse
 import json
-import logging
 import tempfile
 from pathlib import Path
 
@@ -51,9 +50,7 @@ def run() -> None:
     args = parser.parse_args()
     json_file_path = args.jsonfile
 
-    output_file_path = main(json_file_path)
-    logging.basicConfig(level=logging.INFO)
-    logging.getLogger("python-requirements-inspector").info(f" Output file {output_file_path}")
+    print(main(json_file_path))
 
 
 if __name__ == "__main__":
