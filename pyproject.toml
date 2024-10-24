@@ -29,6 +29,9 @@ tox = "^4.12.1"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.poetry.scripts]
+inspect-requirements = "python_requirements_inspector.main:run"
+
 [tool.ruff]
 line-length = 240
 fix = true
