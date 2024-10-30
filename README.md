@@ -50,9 +50,9 @@ poetry add https://github.com/SchweizerischeBundesbahnen/python-requirements-ins
 ```
 ## Execute
 ```bash
-python -m python_requirements_inspector.main inputs.json
+poetry run inspect-requirements path/to/input/json
 ```
-## Outputs will be returned in outputs.json
+## Outputs will be returned in /tmp/output_*.json
 ```json
 [
   {"id": "requirements1",
