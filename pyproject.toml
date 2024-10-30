@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python-requirements-inspector"
-version = "4.0.0"
+version = "4.1.0"
 description = ""
 authors = [
     "SBB Polarion Team <polarion-opensource@sbb.ch>",
