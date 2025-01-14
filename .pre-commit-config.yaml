@@ -42,17 +42,17 @@ repos:
         args: [--config-file, pyproject.toml]
         require_serial: true  # Serial processing is required for mypy (better performance and error reporting)
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.8.6
+    rev: v0.9.1
     hooks:
       - id: ruff-format
       - id: ruff
   - repo: https://github.com/python-poetry/poetry
-    rev: 2.0.0
+    rev: 2.0.1
     hooks:
       - id: poetry-lock
       - id: poetry-check
   - repo: https://github.com/zricethezav/gitleaks
-    rev: v8.22.1
+    rev: v8.23.0
     hooks:
       - id: gitleaks
   - repo: https://github.com/grigoriev/pre-commit-check-git-user
