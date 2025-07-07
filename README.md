@@ -24,13 +24,12 @@ This project requires Python 3.12 and Poetry for dependency management.
 poetry env use python3.12
 
 # Install dependencies (including test dependencies)
-poetry install --extras test
+poetry install --all-extras
 ```
 
 # How to test and build
 This module can be produced using poetry:
 ```bash
-poetry install --extras test
 poetry run pre-commit run -a
 poetry run tox
 poetry build

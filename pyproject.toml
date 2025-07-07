@@ -31,6 +31,8 @@ dev = [
 ]
 test = [
     "tox==4.25.0",
+    "pytest==8.4.1",
+    "coverage==7.9.2"
 ]
 
 [build-system]
