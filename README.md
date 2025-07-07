@@ -15,10 +15,22 @@ This module uses [spaCy](https://github.com/explosion/spaCy) to inspect requirem
 For each requirement a report will be generated with information about the complexity, usage of weak words, usage of non-passive sentences, etc
 
 
+# Prerequisites
+This project requires Python 3.12 and Poetry for dependency management.
+
+## Setup Environment
+```bash
+# Ensure Poetry uses Python 3.12
+poetry env use python3.12
+
+# Install dependencies (including test dependencies)
+poetry install --extras test
+```
+
 # How to test and build
 This module can be produced using poetry:
 ```bash
-poetry install
+poetry install --extras test
 poetry run pre-commit run -a
 poetry run tox
 poetry build
