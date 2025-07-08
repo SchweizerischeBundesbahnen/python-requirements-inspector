@@ -11,8 +11,8 @@ homepage = "https://github.com/SchweizerischeBundesbahnen/python-requirements-in
 repository = "https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector"
 requires-python = ">=3.12,<3.13"
 dependencies = [
-    "spacy (>=3.7,<4.0)",
-    "spacy-language-detection (>=0.2.1,<0.3.0)",
+    "spacy==3.7.5",
+    "spacy-language-detection==0.2.1",
     "de-core-news-md @ https://github.com/explosion/spacy-models/releases/download/de_core_news_md-3.7.0/de_core_news_md-3.7.0-py3-none-any.whl",
     "en-core-web-md @ https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.7.1/en_core_web_md-3.7.1-py3-none-any.whl"
 ]
@@ -25,12 +25,14 @@ requires-poetry = ">=2.0"
 
 [project.optional-dependencies]
 dev = [
-    "pre-commit>=4.0.0,<5.0.0",
-    "ruff>=0.11.0,<1.0.0",
-    "mypy>=1.15.0,<2.0.0",
+    "pre-commit==4.2.0",
+    "ruff==0.11.2",
+    "mypy==1.15.0",
 ]
 test = [
-    "tox>=4.12.1,<5.0.0",
+    "tox==4.25.0",
+    "pytest==8.4.1",
+    "coverage==7.9.2"
 ]
 
 [build-system]
