@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.1.1](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/compare/4.1.0...v4.1.1) (2025-07-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ruff to &gt;=0.10.0,&lt;0.11.0 ([#100](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/issues/100)) ([1aeeb91](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/1aeeb91098140797ab6172acdcdb33d339f56d1e))
+* **deps:** update dependency ruff to &gt;=0.11.0,&lt;0.12.0 ([#102](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/issues/102)) ([a0d3eb6](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/a0d3eb61a39db6013f4e358fc1375b5500a8496b))
+
 ## [4.1.0](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/compare/4.0.0...4.1.0) (2024-10-30)
 
 
