@@ -26,7 +26,7 @@ en-core-web-md = { url = "https://github.com/explosion/spacy-models/releases/dow
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "4.2.0"
-ruff = "0.12.5"
+ruff = "0.12.7"
 mypy = "1.17.0"
 
 [tool.poetry.group.test.dependencies]
