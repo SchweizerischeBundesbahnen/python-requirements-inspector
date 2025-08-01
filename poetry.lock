@@ -1752,14 +1752,14 @@ torch = ["torch (>=1.6.0)"]
 
 [[package]]
 name = "tox"
-version = "4.28.3"
+version = "4.28.4"
 description = "tox is a generic virtualenv management and test command line tool"
 optional = false
 python-versions = ">=3.9"
 groups = ["test"]
 files = [
-    {file = "tox-4.28.3-py3-none-any.whl", hash = "sha256:1debe9daf0b7e64d425ef99a17292b0792385686b1d541df34c7298211e99269"},
-    {file = "tox-4.28.3.tar.gz", hash = "sha256:b91db7219e5242002cf4040a299c8852026d6af35fcd21274d456fb62dafee7b"},
+    {file = "tox-4.28.4-py3-none-any.whl", hash = "sha256:8d4ad9ee916ebbb59272bb045e154a10fa12e3bbdcf94cc5185cbdaf9b241f99"},
+    {file = "tox-4.28.4.tar.gz", hash = "sha256:b5b14c6307bd8994ff1eba5074275826620325ee1a4f61316959d562bfd70b9d"},
 ]
 
 [package.dependencies]
@@ -2009,4 +2009,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12,<3.13"
-content-hash = "9eb8914d0c8e027f4fc4ff4301be8d69923413f73333aa2ec69dee4744f5826c"
+content-hash = "cca14cbcbfc66d8bc1d1db5523e0cb0c4e8f233c2cfaa72b1a28207ed92191d3"
