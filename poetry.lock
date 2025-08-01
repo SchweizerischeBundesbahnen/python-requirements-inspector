@@ -2008,5 +2008,5 @@ files = [
 
 [metadata]
 lock-version = "2.1"
-python-versions = ">=3.12,<3.13"
-content-hash = "cca14cbcbfc66d8bc1d1db5523e0cb0c4e8f233c2cfaa72b1a28207ed92191d3"
+python-versions = ">=3.13,<3.14"
+content-hash = "61c126ae8eea0457d94c33c3813e3e74a8095c978bb5a1d6edc76f5c5abf0629"
