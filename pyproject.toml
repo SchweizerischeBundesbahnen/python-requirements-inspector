@@ -19,7 +19,7 @@ requires-poetry = ">=2.0"
 
 [tool.poetry.dependencies]
 python = ">=3.12,<3.13"
-spacy = "3.7.5"
+spacy = "3.8.7"
 spacy-language-detection = "0.2.1"
 de-core-news-md = { url = "https://github.com/explosion/spacy-models/releases/download/de_core_news_md-3.7.0/de_core_news_md-3.7.0-py3-none-any.whl" }
 en-core-web-md = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.7.1/en_core_web_md-3.7.1-py3-none-any.whl" }
