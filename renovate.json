@@ -10,11 +10,9 @@
       "matchPackageNames": [
         "python",
         "spacy",
-        "spacy-language-detection"
-      ],
-      "matchPackagePatterns": [
-        "^de-core-.*",
-        "^en-core-.*"
+        "spacy-language-detection",
+        "de-core-news-md",
+        "en-core-web-md"
       ]
     }
   ],

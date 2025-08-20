@@ -29,9 +29,9 @@ This project uses spaCy for natural language processing with German and English 
 
 The `renovate.json` configuration groups spaCy-related updates together:
 
-1. **Package Grouping**: Python version + all spaCy packages grouped as "spaCy ecosystem"
-2. **Custom Manager**: Detects language model URLs in `pyproject.toml`
-3. **Coordinated Updates**: Attempts to update all components together including Python version
+1. **Package Grouping**: Python version + spaCy packages + language models grouped as "spaCy ecosystem"
+2. **Custom Regex Manager**: Detects and updates language model URLs in `pyproject.toml`
+3. **Coordinated Updates**: Updates all components together including Python version
 
 ### Current Limitations
 
