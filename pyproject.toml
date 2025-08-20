@@ -18,7 +18,7 @@ inspect-requirements = "python_requirements_inspector.main:run"
 requires-poetry = ">=2.0"
 
 [tool.poetry.dependencies]
-python = ">=3.12,<3.13"
+python = ">=3.13,<3.14"
 spacy = "3.7.5"
 spacy-language-detection = "0.2.1"
 de-core-news-md = { url = "https://github.com/explosion/spacy-models/releases/download/de_core_news_md-3.7.0/de_core_news_md-3.7.0-py3-none-any.whl" }
