@@ -9,7 +9,7 @@ license = { text = "Apache-2.0" }
 readme = "README.md"
 homepage = "https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector"
 repository = "https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector"
-requires-python = ">=3.12,<3.13"
+requires-python = ">=3.12,<3.14"
 
 [project.scripts]
 inspect-requirements = "python_requirements_inspector.main:run"
@@ -18,11 +18,11 @@ inspect-requirements = "python_requirements_inspector.main:run"
 requires-poetry = ">=2.0"
 
 [tool.poetry.dependencies]
-python = ">=3.12,<3.13"
-spacy = "3.7.5"
+python = ">=3.12,<3.14"
+spacy = "3.8.7"
 spacy-language-detection = "0.2.1"
-de-core-news-md = { url = "https://github.com/explosion/spacy-models/releases/download/de_core_news_md-3.7.0/de_core_news_md-3.7.0-py3-none-any.whl" }
-en-core-web-md = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.7.1/en_core_web_md-3.7.1-py3-none-any.whl" }
+de-core-news-md = { url = "https://github.com/explosion/spacy-models/releases/download/de_core_news_md-3.8.0/de_core_news_md-3.8.0-py3-none-any.whl" }
+en-core-web-md = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.8.0/en_core_web_md-3.8.0-py3-none-any.whl" }
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "4.3.0"
