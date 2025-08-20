@@ -2,5 +2,41 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>SchweizerischeBundesbahnen/casc-renovate-preset-polarion-python"
-  ]
+  ],
+  "packageRules": [
+    {
+      "description": "Group spaCy ecosystem updates together including Python version",
+      "groupName": "spaCy ecosystem",
+      "matchPackageNames": [
+        "python",
+        "spacy",
+        "spacy-language-detection"
+      ],
+      "matchPackagePatterns": [
+        "^de-core-.*",
+        "^en-core-.*"
+      ]
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update spaCy language model URLs in pyproject.toml",
+      "fileMatch": ["^pyproject\\.toml$"],
+      "matchStrings": [
+        "(?<depName>de-core-news-md)\\s*=\\s*\\{[^}]*url\\s*=\\s*\"[^\"]*\\/de_core_news_md-(?<currentValue>[0-9]+(?:\\.[0-9]+)*)\\/[^\"]*\"",
+        "(?<depName>en-core-web-md)\\s*=\\s*\\{[^}]*url\\s*=\\s*\"[^\"]*\\/en_core_web_md-(?<currentValue>[0-9]+(?:\\.[0-9]+)*)\\/[^\"]*\""
+      ],
+      "datasourceTemplate": "github-tags",
+      "depNameTemplate": "{{{depName}}}",
+      "lookupNameTemplate": "explosion/spacy-models",
+      "versioningTemplate": "semver",
+      "extractVersionTemplate": "^{{{depName}}}-(?<version>[0-9]+(?:\\.[0-9]+)*)$"
+    }
+  ],
+  "postUpgradeTasks": {
+    "commands": [
+      "echo 'Note: When updating spaCy, ensure language models match the spaCy version.'"
+    ]
+  }
 }
