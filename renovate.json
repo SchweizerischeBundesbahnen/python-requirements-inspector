@@ -14,7 +14,10 @@
         "de-core-news-md",
         "en-core-web-md"
       ],
-      "matchManagers": ["poetry", "regex"]
+      "matchManagers": [
+        "poetry",
+        "custom.regex"
+      ]
     }
   ],
   "customManagers": [
