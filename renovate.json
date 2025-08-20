@@ -11,8 +11,8 @@
         "python",
         "spacy",
         "spacy-language-detection",
-        "de-core-news-md",
-        "en-core-web-md"
+        "/^de-core-.*/",
+        "/^en-core-.*/"
       ]
     }
   ],
@@ -20,14 +20,16 @@
     {
       "customType": "regex",
       "description": "Update spaCy language model URLs in pyproject.toml",
-      "fileMatch": ["^pyproject\\.toml$"],
+      "managerFilePatterns": [
+        "/^pyproject\\.toml$/"
+      ],
       "matchStrings": [
         "(?<depName>de-core-news-md)\\s*=\\s*\\{[^}]*url\\s*=\\s*\"[^\"]*\\/de_core_news_md-(?<currentValue>[0-9]+(?:\\.[0-9]+)*)\\/[^\"]*\"",
         "(?<depName>en-core-web-md)\\s*=\\s*\\{[^}]*url\\s*=\\s*\"[^\"]*\\/en_core_web_md-(?<currentValue>[0-9]+(?:\\.[0-9]+)*)\\/[^\"]*\""
       ],
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "{{{depName}}}",
-      "lookupNameTemplate": "explosion/spacy-models",
+      "packageNameTemplate": "explosion/spacy-models",
       "versioningTemplate": "semver",
       "extractVersionTemplate": "^{{{depName}}}-(?<version>[0-9]+(?:\\.[0-9]+)*)$"
     }

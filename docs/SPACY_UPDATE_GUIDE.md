@@ -35,9 +35,10 @@ The `renovate.json` configuration groups spaCy-related updates together:
 
 ### Current Limitations
 
-- Renovate may not always correctly match spaCy core version with language model versions
-- Language model URLs in `pyproject.toml` need special handling
+- spaCy language models require matching versions with spaCy core
+- Language model URLs in `pyproject.toml` need custom regex manager handling
 - Python version constraints may affect compatibility
+- Configuration uses modern Renovate syntax (auto-migrated)
 
 ## Manual Update Process
 
