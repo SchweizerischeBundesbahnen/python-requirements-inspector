@@ -11,9 +11,10 @@
         "python",
         "spacy",
         "spacy-language-detection",
-        "/^de-core-.*/",
-        "/^en-core-.*/"
-      ]
+        "de-core-news-md",
+        "en-core-web-md"
+      ],
+      "matchManagers": ["poetry", "regex"]
     }
   ],
   "customManagers": [
