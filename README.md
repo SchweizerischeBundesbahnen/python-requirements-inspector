@@ -11,17 +11,17 @@
 
 # Python module to inspect any type of functional or non-functional requirements
 
-This module uses [spaCy](https://github.com/explosion/spaCy) to inspect requirements written in English or German.
+This module uses [spaCy](https://github.com/explosion/spaCy) v3.8.7 to inspect requirements written in English or German.
 For each requirement a report will be generated with information about the complexity, usage of weak words, usage of non-passive sentences, etc
 
 
 # Prerequisites
-This project requires Python 3.12 and Poetry for dependency management.
+This project requires Python 3.13+ and Poetry for dependency management.
 
 ## Setup Environment
 ```bash
-# Ensure Poetry uses Python 3.12
-poetry env use python3.12
+# Ensure Poetry uses Python 3.13
+poetry env use python3.13
 
 # Install dependencies (including test dependencies)
 poetry install --all-extras
@@ -38,7 +38,7 @@ poetry build
 # How to install
 ## Poetry project
 ```bash
-poetry add https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/releases/download/4.0.0/python_requirements_inspector-4.0.0-py3-none-any.whl
+poetry add https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/releases/download/4.1.0/python_requirements_inspector-4.1.0-py3-none-any.whl
 ```
 
 # How to use (example)

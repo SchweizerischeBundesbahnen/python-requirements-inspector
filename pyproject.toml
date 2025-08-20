@@ -9,7 +9,7 @@ license = { text = "Apache-2.0" }
 readme = "README.md"
 homepage = "https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector"
 repository = "https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector"
-requires-python = ">=3.12,<3.14"
+requires-python = ">=3.13,<3.14"
 
 [project.scripts]
 inspect-requirements = "python_requirements_inspector.main:run"
