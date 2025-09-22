@@ -5,42 +5,42 @@
   ],
   "packageRules": [
     {
-      "description": "Group spaCy ecosystem updates together including Python version",
+      "description": "Group spaCy ecosystem updates together",
       "groupName": "spaCy ecosystem",
       "matchPackageNames": [
-        "python",
         "spacy",
-        "spacy-language-detection",
+        "spacy-language-detection"
+      ],
+      "matchManagers": ["poetry"]
+    },
+    {
+      "description": "Group spaCy language models with spaCy updates",
+      "groupName": "spaCy ecosystem",
+      "matchPackageNames": [
         "de-core-news-md",
         "en-core-web-md"
       ],
-      "matchManagers": [
-        "poetry",
-        "custom.regex"
-      ]
+      "matchManagers": ["custom.regex"]
     }
   ],
   "customManagers": [
     {
       "customType": "regex",
       "description": "Update spaCy language model URLs in pyproject.toml",
-      "managerFilePatterns": [
-        "/^pyproject\\.toml$/"
-      ],
+      "fileMatch": ["^pyproject\\.toml$"],
       "matchStrings": [
-        "(?<depName>de-core-news-md)\\s*=\\s*\\{[^}]*url\\s*=\\s*\"[^\"]*\\/de_core_news_md-(?<currentValue>[0-9]+(?:\\.[0-9]+)*)\\/[^\"]*\"",
-        "(?<depName>en-core-web-md)\\s*=\\s*\\{[^}]*url\\s*=\\s*\"[^\"]*\\/en_core_web_md-(?<currentValue>[0-9]+(?:\\.[0-9]+)*)\\/[^\"]*\""
+        "(?<depName>de-core-news-md)\\s*=\\s*\\{\\s*url\\s*=\\s*\"https://github\\.com/explosion/spacy-models/releases/download/de_core_news_md-(?<currentValue>\\d+\\.\\d+\\.\\d+)/de_core_news_md-\\d+\\.\\d+\\.\\d+-py3-none-any\\.whl\"\\s*\\}",
+        "(?<depName>en-core-web-md)\\s*=\\s*\\{\\s*url\\s*=\\s*\"https://github\\.com/explosion/spacy-models/releases/download/en_core_web_md-(?<currentValue>\\d+\\.\\d+\\.\\d+)/en_core_web_md-\\d+\\.\\d+\\.\\d+-py3-none-any\\.whl\"\\s*\\}"
       ],
-      "datasourceTemplate": "github-tags",
-      "depNameTemplate": "{{{depName}}}",
+      "datasourceTemplate": "github-releases",
       "packageNameTemplate": "explosion/spacy-models",
       "versioningTemplate": "semver",
-      "extractVersionTemplate": "^{{{depName}}}-(?<version>[0-9]+(?:\\.[0-9]+)*)$"
+      "extractVersionTemplate": "^(?<depName>de-core-news-md|en-core-web-md)-(?<version>\\d+\\.\\d+\\.\\d+)$"
     }
   ],
   "postUpgradeTasks": {
     "commands": [
-      "echo 'Note: When updating spaCy, ensure language models match the spaCy version.'"
+      "echo 'Note: spaCy language models updated to match spaCy version.'"
     ]
   }
 }
