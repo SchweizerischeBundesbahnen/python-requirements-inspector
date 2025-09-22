@@ -38,10 +38,5 @@
       "versioningTemplate": "semver",
       "extractVersionTemplate": "^(de-core-news-md|en-core-web-md)-(?<version>\\d+\\.\\d+\\.\\d+)$"
     }
-  ],
-  "postUpgradeTasks": {
-    "commands": [
-      "echo 'Note: spaCy language models updated to match spaCy version.'"
-    ]
-  }
+  ]
 }
