@@ -36,7 +36,7 @@
       "datasourceTemplate": "github-releases",
       "packageNameTemplate": "explosion/spacy-models",
       "versioningTemplate": "semver",
-      "extractVersionTemplate": "^(?<depName>de-core-news-md|en-core-web-md)-(?<version>\\d+\\.\\d+\\.\\d+)$"
+      "extractVersionTemplate": "^(de-core-news-md|en-core-web-md)-(?<version>\\d+\\.\\d+\\.\\d+)$"
     }
   ],
   "postUpgradeTasks": {
