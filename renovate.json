@@ -5,14 +5,15 @@
   ],
   "packageRules": [
     {
-
       "description": "Group spaCy ecosystem updates together",
       "groupName": "spaCy ecosystem",
       "matchPackageNames": [
         "spacy",
         "spacy-language-detection"
       ],
-      "matchManagers": ["poetry"]
+      "matchManagers": [
+        "poetry"
+      ]
     },
     {
       "description": "Group spaCy language models with spaCy updates",
@@ -21,14 +22,18 @@
         "de-core-news-md",
         "en-core-web-md"
       ],
-      "matchManagers": ["custom.regex"]
+      "matchManagers": [
+        "custom.regex"
+      ]
     }
   ],
   "customManagers": [
     {
       "customType": "regex",
       "description": "Update spaCy language model URLs in pyproject.toml",
-      "fileMatch": ["^pyproject\\.toml$"],
+      "managerFilePatterns": [
+        "/^pyproject\\.toml$/"
+      ],
       "matchStrings": [
         "(?<depName>de-core-news-md)\\s*=\\s*\\{\\s*url\\s*=\\s*\"https://github\\.com/explosion/spacy-models/releases/download/de_core_news_md-(?<currentValue>\\d+\\.\\d+\\.\\d+)/de_core_news_md-\\d+\\.\\d+\\.\\d+-py3-none-any\\.whl\"\\s*\\}",
         "(?<depName>en-core-web-md)\\s*=\\s*\\{\\s*url\\s*=\\s*\"https://github\\.com/explosion/spacy-models/releases/download/en_core_web_md-(?<currentValue>\\d+\\.\\d+\\.\\d+)/en_core_web_md-\\d+\\.\\d+\\.\\d+-py3-none-any\\.whl\"\\s*\\}"
