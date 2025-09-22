@@ -5,6 +5,7 @@
   ],
   "packageRules": [
     {
+
       "description": "Group spaCy ecosystem updates together",
       "groupName": "spaCy ecosystem",
       "matchPackageNames": [
