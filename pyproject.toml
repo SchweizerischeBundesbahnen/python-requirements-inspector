@@ -5,11 +5,12 @@ description = ""
 authors = [
     { name = "SBB Polarion Team", email = "polarion-opensource@sbb.ch" },
 ]
-license = { text = "Apache-2.0" }
+license = "Apache-2.0"
 readme = "README.md"
 homepage = "https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector"
 repository = "https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector"
 requires-python = ">=3.13,<3.14"
+dynamic = ["dependencies"]
 
 [project.scripts]
 inspect-requirements = "python_requirements_inspector.main:run"
@@ -23,11 +24,13 @@ spacy = "3.8.11"
 spacy-language-detection = "0.2.1"
 de-core-news-md = { url = "https://github.com/explosion/spacy-models/releases/download/de_core_news_md-3.8.0/de_core_news_md-3.8.0-py3-none-any.whl" }
 en-core-web-md = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.8.0/en_core_web_md-3.8.0-py3-none-any.whl" }
+# pinning version to avoid security issues
+urllib3 = "2.6.3"
 
 [tool.poetry.group.dev.dependencies]
-pre-commit = "4.5.0"
-ruff = "0.14.6"
-mypy = "1.18.2"
+pre-commit = "4.5.1"
+ruff = "0.14.11"
+mypy = "1.19.1"
 
 [tool.poetry.group.test.dependencies]
 tox = "4.32.0"
