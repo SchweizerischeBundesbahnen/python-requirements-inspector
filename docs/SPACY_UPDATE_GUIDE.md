@@ -60,35 +60,40 @@ curl -s "https://api.github.com/repos/explosion/spacy-models/releases?per_page=1
 Update the following sections:
 
 ```toml
-[tool.poetry.dependencies]
-python = ">=3.12,<3.14"  # Check spaCy's Python compatibility
-spacy = "3.8.7"  # Update to latest version
-de-core-news-md = { url = "https://github.com/explosion/spacy-models/releases/download/de_core_news_md-3.8.0/de_core_news_md-3.8.0-py3-none-any.whl" }
-en-core-web-md = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.8.0/en_core_web_md-3.8.0-py3-none-any.whl" }
+requires-python = ">=3.13,<3.14"
+
+dependencies = [
+    "spacy==3.8.11",
+    "spacy-language-detection==0.2.1",
+    "de-core-news-md @ https://github.com/explosion/spacy-models/releases/download/de_core_news_md-3.8.0/de_core_news_md-3.8.0-py3-none-any.whl",
+    "en-core-web-md @ https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.8.0/en_core_web_md-3.8.0-py3-none-any.whl",
+    # pinning version to avoid security issues
+    "urllib3==2.6.3",
+]
 ```
 
 ### 3. Update Dependencies
 
 ```bash
-# Update Poetry lock file
-poetry lock
+# Update uv lock file
+uv lock
 
 # Install updated dependencies
-poetry install --all-extras
+uv sync --all-groups
 
 # Run tests
-poetry run tox
+uv run tox
 
 # Run pre-commit hooks
-poetry run pre-commit run -a
+uv run pre-commit run -a
 ```
 
 ### 4. Verify Compatibility
 
 ```bash
 # Test language detection
-poetry run python -c "import spacy; nlp = spacy.load('de_core_news_md'); print(nlp('Test'))"
-poetry run python -c "import spacy; nlp = spacy.load('en_core_web_md'); print(nlp('Test'))"
+uv run python -c "import spacy; nlp = spacy.load('de_core_news_md'); print(nlp('Test'))"
+uv run python -c "import spacy; nlp = spacy.load('en_core_web_md'); print(nlp('Test'))"
 ```
 
 ## Python Version Compatibility
@@ -108,7 +113,7 @@ If installation fails after updating:
 
 1. Check Python version compatibility
 2. Verify language model versions match spaCy version
-3. Clear Poetry cache: `poetry cache clear pypi --all`
+3. Clear uv cache: `uv cache clean pypi --all`
 4. Try downgrading to previous stable versions
 
 ### Model Loading Errors
@@ -116,7 +121,7 @@ If installation fails after updating:
 If models fail to load:
 
 1. Ensure model version matches spaCy version
-2. Reinstall models: `poetry install --all-extras`
+2. Reinstall models: `uv sync --all-groups`
 3. Check model URLs are correct in `pyproject.toml`
 
 ## References

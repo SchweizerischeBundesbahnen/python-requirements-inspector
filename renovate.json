@@ -12,7 +12,7 @@
         "spacy-language-detection"
       ],
       "matchManagers": [
-        "poetry"
+        "uv"
       ]
     },
     {

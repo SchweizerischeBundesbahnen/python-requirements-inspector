@@ -16,29 +16,26 @@ For each requirement a report will be generated with information about the compl
 
 
 # Prerequisites
-This project requires Python 3.13+ and Poetry for dependency management.
+This project requires Python 3.13+ and uv for dependency management.
 
 ## Setup Environment
 ```bash
-# Ensure Poetry uses Python 3.13
-poetry env use python3.13
-
 # Install dependencies (including test dependencies)
-poetry install --all-extras
+uv sync --all-groups
 ```
 
 # How to test and build
-This module can be produced using poetry:
+This module can be produced using uv:
 ```bash
-poetry run pre-commit run -a
-poetry run tox
-poetry build
+uv run pre-commit run -a
+uv run tox
+uv build
 ```
 
 # How to install
-## Poetry project
+## UV project
 ```bash
-poetry add https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/releases/download/4.1.0/python_requirements_inspector-4.1.0-py3-none-any.whl
+uv add https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/releases/download/4.1.0/python_requirements_inspector-4.1.0-py3-none-any.whl
 ```
 
 # How to use (example)
@@ -61,7 +58,7 @@ poetry add https://github.com/SchweizerischeBundesbahnen/python-requirements-ins
 ```
 ## Execute
 ```bash
-poetry run inspect-requirements path/to/input/json
+uv run inspect-requirements path/to/input/json
 ```
 ## Outputs will be returned in /tmp/output_*.json
 ```json

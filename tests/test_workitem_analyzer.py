@@ -227,7 +227,3 @@ def test_workitem_analyzer_with_additional_fields():
     # check if all values are set to the expected values
     for key, expected_value in expected_finding_values.items():
         assert result_dict[key] == expected_value
-
-
-if __name__ == "__main__":
-    test_workitem_analyzer_with_findings_en()

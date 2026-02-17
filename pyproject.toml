@@ -7,43 +7,47 @@ authors = [
 ]
 license = "Apache-2.0"
 readme = "README.md"
-homepage = "https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector"
-repository = "https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector"
 requires-python = ">=3.13,<3.14"
-dynamic = ["dependencies"]
+
+dependencies = [
+    "spacy==3.8.11",
+    "spacy-language-detection==0.2.1",
+    "de-core-news-md @ https://github.com/explosion/spacy-models/releases/download/de_core_news_md-3.8.0/de_core_news_md-3.8.0-py3-none-any.whl",
+    "en-core-web-md @ https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.8.0/en_core_web_md-3.8.0-py3-none-any.whl",
+    # pinning version to avoid security issues
+    "urllib3==2.6.3",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit==4.5.1",
+    "ruff==0.14.11",
+    "mypy==1.19.1",
+]
+
+test = [
+    "tox==4.33.0",
+    "pytest==9.0.2",
+    "coverage==7.13.1",
+]
 
 [project.scripts]
 inspect-requirements = "python_requirements_inspector.main:run"
 
-[tool.poetry]
-requires-poetry = ">=2.0"
+[tool.uv]
+# Set to true because this project is a library, not an application
+package = true
 
-[tool.poetry.dependencies]
-spacy = "3.8.11"
-spacy-language-detection = "0.2.1"
-de-core-news-md = { url = "https://github.com/explosion/spacy-models/releases/download/de_core_news_md-3.8.0/de_core_news_md-3.8.0-py3-none-any.whl" }
-en-core-web-md = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.8.0/en_core_web_md-3.8.0-py3-none-any.whl" }
-# pinning version to avoid security issues
-urllib3 = "2.6.3"
-
-[tool.poetry.group.dev.dependencies]
-pre-commit = "4.5.1"
-ruff = "0.14.11"
-mypy = "1.19.1"
-
-[tool.poetry.group.test.dependencies]
-tox = "4.33.0"
-pytest = "9.0.2"
-coverage = "7.13.1"
-
-[build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.setuptools]
+packages = ["python_requirements_inspector"]
 
 [tool.ruff]
 line-length = 240
 fix = true
 show-fixes = true
+exclude = [
+    "tests/*"  # Exclude all test files from linting
+]
 
 [tool.ruff.lint]
 extend-select = [
@@ -72,10 +76,16 @@ extend-select = [
     "S101" # No assert rule (bandit)
 ]
 
-[tool.ruff.format]
-line-ending = "lf"
-
 [tool.mypy]
 explicit_package_bases = true
 disallow_untyped_defs = true
 exclude = "tests/.*"
+install_types = true
+non_interactive = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
