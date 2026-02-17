@@ -38,16 +38,14 @@ inspect-requirements = "python_requirements_inspector.main:run"
 # Set to true because this project is a library, not an application
 package = true
 
-[tool.setuptools]
-packages = ["python_requirements_inspector"]
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [tool.ruff]
 line-length = 240
 fix = true
 show-fixes = true
-exclude = [
-    "tests/*"  # Exclude all test files from linting
-]
 
 [tool.ruff.lint]
 extend-select = [
@@ -75,6 +73,9 @@ extend-select = [
 "tests/*" = [
     "S101" # No assert rule (bandit)
 ]
+
+[tool.ruff.format]
+line-ending = "lf"
 
 [tool.mypy]
 explicit_package_bases = true

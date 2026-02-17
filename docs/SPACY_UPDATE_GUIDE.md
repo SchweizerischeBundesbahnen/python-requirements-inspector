@@ -113,7 +113,7 @@ If installation fails after updating:
 
 1. Check Python version compatibility
 2. Verify language model versions match spaCy version
-3. Clear uv cache: `uv cache clean pypi --all`
+3. Clear uv cache: `uv cache clean`
 4. Try downgrading to previous stable versions
 
 ### Model Loading Errors
