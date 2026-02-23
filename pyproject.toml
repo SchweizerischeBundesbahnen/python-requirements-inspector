@@ -7,11 +7,6 @@ authors = [
 ]
 license = "Apache-2.0"
 readme = "README.md"
-
-[project.urls]
-Homepage = "https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector"
-Repository = "https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector"
-
 requires-python = ">=3.13,<3.14"
 
 dependencies = [
@@ -22,6 +17,13 @@ dependencies = [
     # pinning version to avoid security issues
     "urllib3==2.6.3",
 ]
+
+[project.scripts]
+inspect-requirements = "python_requirements_inspector.main:run"
+
+[project.urls]
+Homepage = "https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector"
+Repository = "https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector"
 
 [dependency-groups]
 dev = [
@@ -35,9 +37,6 @@ test = [
     "pytest==9.0.2",
     "coverage==7.13.1",
 ]
-
-[project.scripts]
-inspect-requirements = "python_requirements_inspector.main:run"
 
 [tool.uv]
 # Set to true because this project is a library, not an application
