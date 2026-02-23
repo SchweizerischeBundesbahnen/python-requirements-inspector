@@ -50,7 +50,6 @@ jobs:
           args: |
             -Dsonar.branch.name=${{ github.head_ref }}
   release-please:
-    needs: verify-with-tox
     runs-on: ubuntu-latest
     if: github.event_name != 'pull_request' && github.ref_name == 'main'
     permissions:
@@ -67,7 +66,7 @@ jobs:
       release_created: ${{ steps.release.outputs.release_created }}
       version: ${{ steps.release.outputs.version }}
   build-and-publish:
-    needs: release-please
+    needs: [verify-with-tox, release-please]
     runs-on: ubuntu-latest
     if: ${{ needs.release-please.outputs.release_created == 'true' }}
     permissions:
