@@ -35,7 +35,7 @@ dev = [
 test = [
     "tox==4.33.0",
     "pytest==9.0.2",
-    "coverage==7.13.1",
+    "coverage==7.13.4",
 ]
 
 [tool.uv]
