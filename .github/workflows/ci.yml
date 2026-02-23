@@ -28,7 +28,7 @@ jobs:
         with:
           enable-cache: true
       - name: 🧱 Install dependencies
-        run: uv sync --all-groups
+        run: uv sync --all-groups --locked
       - name: 🧪 Run tests
         run: uv run tox
       - name: SonarCloud scan for PR
@@ -88,7 +88,7 @@ jobs:
         with:
           enable-cache: true
       - name: 🧱 Install dependencies
-        run: uv sync
+        run: uv sync --locked
       - name: 📦 Build the package
         run: uv build
       - name: 📦 Publish artifacts to GitHub release

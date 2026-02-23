@@ -35,8 +35,8 @@
         "/^pyproject\\.toml$/"
       ],
       "matchStrings": [
-        "(?<depName>de-core-news-md)\\s*=\\s*\\{\\s*url\\s*=\\s*\"https://github\\.com/explosion/spacy-models/releases/download/de_core_news_md-(?<currentValue>\\d+\\.\\d+\\.\\d+)/de_core_news_md-\\d+\\.\\d+\\.\\d+-py3-none-any\\.whl\"\\s*\\}",
-        "(?<depName>en-core-web-md)\\s*=\\s*\\{\\s*url\\s*=\\s*\"https://github\\.com/explosion/spacy-models/releases/download/en_core_web_md-(?<currentValue>\\d+\\.\\d+\\.\\d+)/en_core_web_md-\\d+\\.\\d+\\.\\d+-py3-none-any\\.whl\"\\s*\\}"
+        "\"(?<depName>de-core-news-md)\\s*@\\s*https://github\\.com/explosion/spacy-models/releases/download/de_core_news_md-(?<currentValue>\\d+\\.\\d+\\.\\d+)/de_core_news_md-\\d+\\.\\d+\\.\\d+-py3-none-any\\.whl\"",
+        "\"(?<depName>en-core-web-md)\\s*@\\s*https://github\\.com/explosion/spacy-models/releases/download/en_core_web_md-(?<currentValue>\\d+\\.\\d+\\.\\d+)/en_core_web_md-\\d+\\.\\d+\\.\\d+-py3-none-any\\.whl\""
       ],
       "datasourceTemplate": "github-releases",
       "packageNameTemplate": "explosion/spacy-models",

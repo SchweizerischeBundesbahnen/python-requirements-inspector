@@ -7,6 +7,11 @@ authors = [
 ]
 license = "Apache-2.0"
 readme = "README.md"
+
+[project.urls]
+Homepage = "https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector"
+Repository = "https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector"
+
 requires-python = ">=3.13,<3.14"
 
 dependencies = [
