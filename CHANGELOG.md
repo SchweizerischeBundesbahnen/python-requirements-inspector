@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.2.1](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/compare/4.2.0...4.2.1) (2026-03-07)
+
+
+### Bug Fixes
+
+* add root package to release-please config ([246908c](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/246908c49f59216667bde41f803bf22aef8cc131))
+* run release-please independently from verify-with-tox ([ed85eaf](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/ed85eaf13cb5dd8b1e8d846e0b731f6f90f8edbd))
+
 ## 4.2.0 (2026-02-23)
 
 
