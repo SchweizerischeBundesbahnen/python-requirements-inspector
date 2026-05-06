@@ -1,5 +1,20 @@
 # Changelog
 
+## [4.2.1](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/compare/4.2.0...4.2.1) (2026-05-06)
+
+
+### Bug Fixes
+
+* add root package to release-please config ([246908c](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/246908c49f59216667bde41f803bf22aef8cc131))
+* **deps:** update dependency spacy to v3.8.13 ([ee4cb0a](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/ee4cb0a177aeae93f623544dcd1ffa34099ca948))
+* **deps:** update dependency spacy to v3.8.14 ([c6cbcb9](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/c6cbcb99916e27a81a37b187f9008b1cdf150ffc))
+* run release-please independently from verify-with-tox ([ed85eaf](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/ed85eaf13cb5dd8b1e8d846e0b731f6f90f8edbd))
+
+
+### Performance Improvements
+
+* switch tox to uv-venv-lock-runner for faster CI ([#159](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/issues/159)) ([b9defa7](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/b9defa70b104781f325e409ab96a229e7013e39b))
+
 ## 4.2.0 (2026-02-23)
 
 
