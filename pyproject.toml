@@ -15,7 +15,7 @@ dependencies = [
     "de-core-news-md @ https://github.com/explosion/spacy-models/releases/download/de_core_news_md-3.8.0/de_core_news_md-3.8.0-py3-none-any.whl",
     "en-core-web-md @ https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.8.0/en_core_web_md-3.8.0-py3-none-any.whl",
     # pinning version to avoid security issues
-    "urllib3==2.6.3",
+    "urllib3==2.7.0",
 ]
 
 [project.scripts]
