@@ -10,6 +10,14 @@ from pathlib import Path
 from python_requirements_inspector.workitem_analyzer import WorkitemAnalyzer
 
 
+def validate_path_in_cwd(path: Path) -> Path:
+    cwd = Path.cwd()
+    resolved = path.resolve()
+    if not resolved.is_relative_to(cwd):
+        raise ValueError("Input path not relative to CWD")
+    return resolved
+
+
 def main(json_path: str) -> str:
     """
     Main function for analyzing workitem data from a JSON file.
@@ -22,7 +30,8 @@ def main(json_path: str) -> str:
     """
 
     # Read input data from the provided JSON file
-    with Path(json_path).open(encoding="utf-8") as json_file:
+    validated_json_path = validate_path_in_cwd(Path(json_path))
+    with Path(validated_json_path).open(encoding="utf-8") as json_file:
         input_data = json.load(json_file)
 
     workitem_analyzer = WorkitemAnalyzer()
