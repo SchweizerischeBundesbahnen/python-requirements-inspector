@@ -11,14 +11,14 @@ jobs:
   verify-with-tox:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      pull-requests: write
+      contents: read
+      pull-requests: write  # Required for SonarCloud to comment on PRs and update status
     steps:
       - name: 📄 Checkout code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7
         with:
-          fetch-depth: 1
           persist-credentials: false
+          fetch-depth: 0  # Full history required for SonarCloud analysis
       - name: Set up Python from .tool-versions
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
         with:
@@ -33,7 +33,7 @@ jobs:
         run: uv run tox
       - name: SonarCloud scan for PR
         uses: sonarsource/sonarqube-scan-action@22918119ff8e1ca75a623e15c8296b6ea4fbe28f  # v8
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && github.event.repository.visibility == 'public'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -42,29 +42,23 @@ jobs:
             -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
       - name: SonarCloud scan for Push
         uses: sonarsource/sonarqube-scan-action@22918119ff8e1ca75a623e15c8296b6ea4fbe28f  # v8
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && github.event.repository.visibility == 'public'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: |
-            -Dsonar.branch.name=${{ github.head_ref }}
+            -Dsonar.branch.name=${{ github.ref_name }}
   release-please:
-    runs-on: ubuntu-latest
     if: github.event_name != 'pull_request' && github.ref_name == 'main'
+    uses: SchweizerischeBundesbahnen/github-workflows-polarion/.github/workflows/reusable-release-please.yml@main
     permissions:
       contents: write
       pull-requests: write
-      issues: write
-    steps:
-      - name: 🚀 release-please
-        id: release
-        uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7  # v5
-        with:
-          config-file: release-please-config.json
-    outputs:
-      release_created: ${{ steps.release.outputs.release_created }}
-      version: ${{ steps.release.outputs.version }}
+    with:
+      config-file: release-please-config.json
+      manifest-file: .release-please-manifest.json
+      include-v-in-tag: false
   build-and-publish:
     needs: [verify-with-tox, release-please]
     runs-on: ubuntu-latest
@@ -92,5 +86,5 @@ jobs:
       - name: 📦 Publish artifacts to GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_VERSION: ${{ needs.release-please.outputs.version }}
-        run: gh release upload "${RELEASE_VERSION}" dist/*.{tar.gz,whl}
+          RELEASE_TAG: ${{ needs.release-please.outputs.tag_name }}
+        run: gh release upload "${RELEASE_TAG}" dist/*.{tar.gz,whl}
