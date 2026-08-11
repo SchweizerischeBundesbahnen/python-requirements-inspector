@@ -18,7 +18,7 @@ class ComplexChecker:
     A class for analyzing sentence complexity.
     """
 
-    def __init__(self, text_processor: TextProcessor):
+    def __init__(self, text_processor: TextProcessor) -> None:
         """
         Initializes a ComplexChecker object.
 

@@ -18,7 +18,7 @@ class TextProcessor:
 
     __small_nlp: English | German
 
-    def __init__(self, lang: str):
+    def __init__(self, lang: str) -> None:
         """
         Initializes a TextProcessor object.
 

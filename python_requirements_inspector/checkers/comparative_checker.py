@@ -23,7 +23,7 @@ class ComparativeChecker:
     A class for checking comparative and superlative constructions in a given text.
     """
 
-    def __init__(self, text_processor: TextProcessor):
+    def __init__(self, text_processor: TextProcessor) -> None:
         """
         Initializes a ComparativeChecker object.
 
