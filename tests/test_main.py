@@ -82,7 +82,5 @@ def test_main_non_relative_path():
         input_json_file.flush()
 
     # execute main with json file
-    with pytest.raises(ValueError) as e:
+    with pytest.raises(ValueError, match="Input path not relative to CWD"):
         _ = main.main(input_json_file.name)
-        assert e.errisinstance(ValueError)
-        assert "Input path not relative to CWD" in e.exconly()
