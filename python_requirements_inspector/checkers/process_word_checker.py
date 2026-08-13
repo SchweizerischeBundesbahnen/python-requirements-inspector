@@ -167,7 +167,7 @@ class ProcessWordChecker:
     A class for analyzing the presence of process words in sentences.
     """
 
-    def __init__(self, text_processor: TextProcessor):
+    def __init__(self, text_processor: TextProcessor) -> None:
         """
         Initializes a ProcessWordChecker object.
 

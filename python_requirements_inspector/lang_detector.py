@@ -4,7 +4,7 @@ Implementation of language detector
 
 import spacy
 from spacy.language import Language
-from spacy_language_detection import LanguageDetector  # type: ignore
+from spacy_language_detection import LanguageDetector  # type: ignore[import-untyped]
 
 from python_requirements_inspector import constants
 
@@ -30,9 +30,11 @@ class LangDetector:
         self.__nlp.add_pipe("language_detector", last=True)
 
     @staticmethod
-    def __get_lang_detector(nlp: Language, name: str) -> LanguageDetector:
+    def __get_lang_detector(nlp: Language, name: str) -> LanguageDetector:  # noqa: ARG004
         """
-        Factory function for the language detector.
+        Factory function for the language detector. spaCy passes nlp and name
+        as keyword arguments, so both must keep their names even though this
+        factory uses neither.
 
         Returns:
             spacy_langdetect.LanguageDetector: The language detector instance.
