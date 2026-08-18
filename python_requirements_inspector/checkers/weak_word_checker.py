@@ -81,7 +81,7 @@ class WeakWordChecker:
     A class for analyzing the presence of weak words in sentences.
     """
 
-    def __init__(self, text_processor: TextProcessor):
+    def __init__(self, text_processor: TextProcessor) -> None:
         """
         Initializes a WeakWordChecker object.
 

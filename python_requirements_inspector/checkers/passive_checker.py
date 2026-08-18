@@ -34,7 +34,7 @@ class PassiveChecker:
     A class for analyzing passive voice constructions in sentences.
     """
 
-    def __init__(self, text_processor: TextProcessor):
+    def __init__(self, text_processor: TextProcessor) -> None:
         """
         Initializes a PassiveChecker object.
 
@@ -50,7 +50,7 @@ class PassiveChecker:
         if lang == constants.ENGLISH:
             passive_rule = passive_rule_en
         elif lang == constants.GERMAN:
-            passive_rule = passive_rule_de  # type: ignore
+            passive_rule = passive_rule_de  # type: ignore[assignment]
         else:
             raise ValueError(f"Unsupported language: {lang}")
 

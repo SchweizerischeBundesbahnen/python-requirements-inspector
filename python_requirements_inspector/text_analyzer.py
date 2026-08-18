@@ -30,7 +30,6 @@ class CheckerProtocol(Protocol):
                 - Finding description (str)
 
         """
-        pass
 
 
 class TextAnalyzer:
@@ -38,7 +37,7 @@ class TextAnalyzer:
     A class for analyzing text for various types of linguistic issues.
     """
 
-    def __init__(self, lang: str):
+    def __init__(self, lang: str) -> None:
         """
         Initialize the TextAnalyzer.
 

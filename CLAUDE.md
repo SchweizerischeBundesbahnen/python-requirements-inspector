@@ -48,6 +48,9 @@ uv build
 uv run inspect-requirements path/to/input.json
 ```
 
+The main function only accepts input JSON inside the current working directory.
+For use in automated processes, import `WorkitemAnalyzer` directly instead.
+
 ## Code Architecture
 
 ### Core Components
