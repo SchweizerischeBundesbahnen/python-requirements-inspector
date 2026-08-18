@@ -159,6 +159,11 @@ line-ending = "lf"
 quote-style = "double"
 
 [tool.mypy]
+# Load-bearing for the pre-commit hook, which runs with pass_filenames: false and
+# therefore passes mypy no target of its own. Without this key mypy would be
+# invoked with nothing to check and would exit 0 without type-checking anything.
+# tox calls `mypy .` explicitly, so the two legs check the same tree either way.
+files = ["python_requirements_inspector"]
 explicit_package_bases = true
 disallow_untyped_defs = true
 exclude = "tests/.*"
