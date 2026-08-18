@@ -1,9 +1,16 @@
 ---
 rules:
-  # ci.yml: SONAR_TOKEN used in step-level env: (not a GitHub environment) — zizmor requires job-level environment.
-  # claude-code-review.yml: CLAUDE_CODE_OAUTH_TOKEN passed as secrets: to reusable workflow — cannot be in env:.
-  # claude.yml: CLAUDE_CODE_OAUTH_TOKEN passed directly to action — comment-triggered workflow, environment approval impractical.
-  # Fork-PR workflows are additionally protected by GitHub's approval requirement.
+  # secrets-outside-env flags any use of the secrets context in a job that declares
+  # no job-level environment:. The remediation it asks for is an environment-scoped
+  # secret — not an env: block and not a with: input, so neither of those is a reason
+  # to ignore it. These three workflows use repository secrets deliberately: per
+  # zizmor's own documentation, environment secrets do not reach a reusable workflow
+  # unless the caller uses secrets: inherit, which the secrets-inherit audit then
+  # flags in turn. Fork-PR workflows are additionally protected by GitHub's approval
+  # requirement.
+  # Note: since zizmor 1.24.0 this audit reports only under --persona=auditor, which
+  # neither the pre-commit hook nor CI passes, so these entries are currently inert
+  # and are kept to record the decision.
   secrets-outside-env:
     ignore: [ci.yml, claude-code-review.yml, claude.yml]
   # Reusable workflows from our own org — tracking @main intentionally.

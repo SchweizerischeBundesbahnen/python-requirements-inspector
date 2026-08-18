@@ -10,6 +10,9 @@ repos:
         language: system
         types: [python]
       # Run the linter (inherits config from pyproject.toml)
+      # The tests are linted through per-file-ignores, not excluded — see the
+      # "tests/**" table in pyproject.toml. An exclude here would put them back
+      # out of scope at commit time and make that table dead config locally.
       - id: ruff-check
         name: ruff linter
         entry: uv run ruff check
@@ -58,6 +61,7 @@ repos:
         exclude: (^tests/)
         args: [--config-file, pyproject.toml]
         require_serial: true  # Serial processing is required for mypy (better performance and error reporting)
+        pass_filenames: false  # Don't pass individual files, use the specified path
   - repo: local
     hooks:
       - id: uv-lock
