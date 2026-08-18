@@ -1,5 +1,28 @@
 # Changelog
 
+## [4.2.1](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/compare/4.2.0...4.2.1) (2026-08-18)
+
+
+### Bug Fixes
+
+* add root package to release-please config ([246908c](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/246908c49f59216667bde41f803bf22aef8cc131))
+* **deps:** update dependency spacy to v3.8.13 ([ee4cb0a](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/ee4cb0a177aeae93f623544dcd1ffa34099ca948))
+* **deps:** update dependency spacy to v3.8.14 ([c6cbcb9](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/c6cbcb99916e27a81a37b187f9008b1cdf150ffc))
+* **deps:** update dependency spacy to v3.8.15 ([f69671f](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/f69671fcac6abf47d47b4057de65455fbf4d5d42))
+* **deps:** update dependency urllib3 to v2.7.0 ([1dc4537](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/1dc453794bea998618e64a59e6eb2599b6bd1389))
+* path injection vulnerability in main ([#169](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/issues/169)) ([c735d89](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/c735d892bbb6692e11b5817ff06af1e4b45805c2))
+* run release-please independently from verify-with-tox ([ed85eaf](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/ed85eaf13cb5dd8b1e8d846e0b731f6f90f8edbd))
+
+
+### Performance Improvements
+
+* switch tox to uv-venv-lock-runner for faster CI ([#159](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/issues/159)) ([b9defa7](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/b9defa70b104781f325e409ab96a229e7013e39b))
+
+
+### Documentation
+
+* sync documentation from template ([#173](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/issues/173)) ([461e55b](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/461e55bb77fe5d894899cb2c4054dece95b8e46d)), closes [#170](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/issues/170)
+
 ## 4.2.0 (2026-02-23)
 
 
