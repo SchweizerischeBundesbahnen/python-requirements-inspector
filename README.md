@@ -60,6 +60,9 @@ uv add https://github.com/SchweizerischeBundesbahnen/python-requirements-inspect
 ```bash
 uv run inspect-requirements path/to/input/json
 ```
+The main function only accepts input JSON inside the current working directory.
+For use in automated processes, import `WorkitemAnalyzer` directly instead.
+
 ## Outputs will be returned in /tmp/output_*.json
 ```json
 [
