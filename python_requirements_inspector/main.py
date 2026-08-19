@@ -10,11 +10,15 @@ from pathlib import Path
 from python_requirements_inspector.workitem_analyzer import WorkitemAnalyzer
 
 
+class PathOutsideWorkingDirectoryError(ValueError):
+    """Raised when an input path resolves outside the current working directory."""
+
+
 def validate_path_in_cwd(path: Path) -> Path:
     cwd = Path.cwd()
     resolved = path.resolve()
     if not resolved.is_relative_to(cwd):
-        raise ValueError("Input path not relative to CWD")
+        raise PathOutsideWorkingDirectoryError(f"Input path not relative to CWD: {resolved} is outside {cwd}")
     return resolved
 
 
@@ -31,7 +35,7 @@ def main(json_path: str) -> str:
 
     # Read input data from the provided JSON file
     validated_json_path = validate_path_in_cwd(Path(json_path))
-    with Path(validated_json_path).open(encoding="utf-8") as json_file:
+    with validated_json_path.open(encoding="utf-8") as json_file:
         input_data = json.load(json_file)
 
     workitem_analyzer = WorkitemAnalyzer()
@@ -59,7 +63,10 @@ def run() -> None:
     args = parser.parse_args()
     json_file_path = args.jsonfile
 
-    print(main(json_file_path))
+    try:
+        print(main(json_file_path))
+    except PathOutsideWorkingDirectoryError as error:
+        parser.error(str(error))
 
 
 if __name__ == "__main__":
