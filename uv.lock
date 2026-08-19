@@ -704,7 +704,7 @@ wheels = [
 
 [[package]]
 name = "python-requirements-inspector"
-version = "4.2.0"
+version = "4.2.1"
 source = { editable = "." }
 dependencies = [
     { name = "de-core-news-md" },
