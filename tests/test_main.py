@@ -109,3 +109,16 @@ def test_run_reports_non_relative_path(tmp_path: Path, capsys: pytest.CaptureFix
 
     assert exit_info.value.code == expected_exit_code
     assert "Input path not relative to CWD" in capsys.readouterr().err
+
+
+def test_run_does_not_swallow_unrelated_value_errors(tmp_path: Path):
+    """
+    Test function for the command-line entry point when an in-scope input file holds malformed JSON.
+    """
+
+    malformed_json_file = tmp_path / "malformed.json"
+    malformed_json_file.write_text("{not json", encoding="utf-8")
+
+    # a data error is not reported as a command-line usage error
+    with chdir(tmp_path), patch.object(sys, "argv", ["inspect-requirements", malformed_json_file.name]), pytest.raises(json.JSONDecodeError):
+        main.run()
