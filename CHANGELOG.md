@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.2.2](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/compare/4.2.1...4.2.2) (2026-09-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency spacy to v3.8.16 ([5f39202](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/5f392028dbd3cef8e025b5b5714bdd9932c4e9ee))
+* **deps:** update dependency tox to v4.61.2 ([270c84c](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/270c84c0068c55adf4bb76349d8616b49aef2950))
+
 ## [4.2.1](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/compare/4.2.0...4.2.1) (2026-08-18)
 
 
