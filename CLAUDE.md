@@ -30,7 +30,7 @@ uv run tox
 
 # Run specific test environments
 uv run tox -e lint    # Linting and type checking only
-uv run tox -e test    # Tests with coverage
+uv run tox -e py314   # Tests with coverage
 
 # Manual linting and formatting
 uv run ruff format
