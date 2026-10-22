@@ -25,6 +25,13 @@
       "matchManagers": [
         "custom.regex"
       ]
+    },
+    {
+      "description": "Keep Python below 3.15: spaCy 3.8 has no cp315 wheels and fails to load models on 3.15 (explosion/spaCy#14047). Remove when spaCy supports 3.15.",
+      "matchDepNames": [
+        "python"
+      ],
+      "allowedVersions": "<3.15"
     }
   ],
   "customManagers": [
