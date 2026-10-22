@@ -1,5 +1,55 @@
 # Changelog
 
+## [4.3.0](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/compare/4.2.1...4.3.0) (2026-10-22)
+
+
+### Features
+
+* add python 3.14 support ([dfbecbf](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/dfbecbf68d1037114304967e499e9cff6e71dea1))
+
+
+### Bug Fixes
+
+* bump uv to 0.13.4 in the lock file ([dfbecbf](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/dfbecbf68d1037114304967e499e9cff6e71dea1))
+* **deps:** update dependency coverage to v7.16.1 ([757fb89](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/757fb89dfbf62e3e963941836ca4755b82cf0fde))
+* **deps:** update dependency coverage to v7.16.2 ([551f9d7](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/551f9d746e85bd350802cb409846bcdbb0063256))
+* **deps:** update dependency mypy to v2.4.0 ([786be0d](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/786be0d71c98f749f3f854d62c0b793771deca7b))
+* **deps:** update dependency pre-commit to v4.7.0 ([39c73f8](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/39c73f8b13f72be3b445c05db1abb14799c99adf))
+* **deps:** update dependency ruff to v0.16.10 ([c707789](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/c707789588604f545a615174f38c268848e14562))
+* **deps:** update dependency ruff to v0.16.6 ([24856b3](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/24856b309e75d7f0cfd46b983b8f1389a9229066))
+* **deps:** update dependency ruff to v0.16.7 ([ef40e3e](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/ef40e3e77e91721a75269cacb3c685ae94b9906d))
+* **deps:** update dependency ruff to v0.16.8 ([e003850](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/e0038508beccbfb9ba33afc3d302c8d383b84919))
+* **deps:** update dependency ruff to v0.16.9 ([a0e0237](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/a0e0237e1611046ae96fbda057f9d9bf56b6c1ba))
+* **deps:** update dependency ruff to v0.17.0 ([e310828](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/e3108288ad56cf93c203c770b0398754f295f478))
+* **deps:** update dependency ruff to v0.17.1 ([01f526f](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/01f526f96a5eea3925efddb3b31fbb81e516efc8))
+* **deps:** update dependency spacy to v3.8.16 ([5f39202](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/5f392028dbd3cef8e025b5b5714bdd9932c4e9ee))
+* **deps:** update dependency tox to v4.61.2 ([270c84c](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/270c84c0068c55adf4bb76349d8616b49aef2950))
+* **deps:** update dependency tox to v4.61.3 ([89cc9b3](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/89cc9b345f71b45acf6eff9670fe4d7506215ab6))
+* **deps:** update dependency tox to v4.61.4 ([969f7b6](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/969f7b61104dac60c114f7bd370c8022a7cae611))
+* **deps:** update dependency tox to v4.61.5 ([6cd91e4](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/6cd91e4dca906290c2eeaaa0d01396e0407529ed))
+* **deps:** update dependency tox to v4.63.0 ([ce8c09c](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/ce8c09cb18b74feb43dad50614248108deea5b49))
+* **deps:** update dependency tox to v4.64.1 ([612d904](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/612d904de228e02c2e7a0f2993ba3105e80177eb))
+* **deps:** update dependency tox to v4.64.10 ([9fe737a](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/9fe737a1e09d3eed314f0e666105b11fa10759bf))
+* **deps:** update dependency tox to v4.64.2 ([8243b9f](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/8243b9f8f283a1435ca32899c464bd959812ef52))
+* **deps:** update dependency tox to v4.64.3 ([edd8186](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/edd81862287b90ba93903c3aeab51dbd94bf2aec))
+* **deps:** update dependency tox to v4.64.4 ([8823678](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/8823678967e64b65fd60a75ade1e53b4e9295f08))
+* **deps:** update dependency tox to v4.64.5 ([7de8124](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/7de812455e9541d30a9719afa70166ad79f71a33))
+* **deps:** update dependency tox to v4.64.6 ([7e089a1](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/7e089a13938370b200792b31770dec4588a1f5f4))
+* **deps:** update dependency tox to v4.64.7 ([a3a68ea](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/a3a68ea838945aebb486f4b87c1d2721caadcfe9))
+* **deps:** update dependency tox to v4.64.8 ([0f9c86e](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/0f9c86e664bb436470203acbd655323a777402ff))
+* **deps:** update dependency tox to v4.64.9 ([475fdb4](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/475fdb4f7991381a55b67b75fd0becfcedc61647))
+* **deps:** update dependency tox to v4.65.2 ([bf44a27](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/bf44a279e9305876da1a46aeabadaaa0cb576557))
+* **deps:** update dependency tox to v4.65.3 ([023e018](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/023e01881f8d94016d19552941325d5d203d9a28))
+* **deps:** update dependency tox to v4.65.4 ([b29aa0e](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/b29aa0e79fa6fdc9d41dea016ea7269db3da3845))
+* **deps:** update dependency tox to v4.65.5 ([302ea63](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/302ea635e288d83ecc9f0e393146cb613b8c68bd))
+* **deps:** update dependency tox to v4.65.6 ([0ac30b0](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/0ac30b0573f0de7e5f5737c3ba5436415508600c))
+* **deps:** update dependency tox to v4.66.0 ([6cd54c8](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/6cd54c8f5777cdae8d202094c25b1c0c29dc47a3))
+* **deps:** update dependency tox to v4.67.0 ([9bfe8b2](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/9bfe8b21cb9a74f103e8b6ed3d5390049095cd74))
+* **deps:** update dependency tox to v4.67.1 ([2f31257](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/2f31257e6139b1609d06eea7fea1d7a01379e241))
+* **deps:** update dependency tox-uv to v1.36.1 ([6dc3326](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/6dc332614d5493493981c9d2ac6c7b172c63e790))
+* **deps:** update dependency tox-uv to v1.37.0 ([62b1203](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/62b1203d456e80e1ece13870f099abaf39994997))
+* **deps:** update dependency urllib3 to v2.8.0 ([c4e3450](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/commit/c4e3450926602a37143e9210ffeb30929e148fd0))
+
 ## [4.2.1](https://github.com/SchweizerischeBundesbahnen/python-requirements-inspector/compare/4.2.0...4.2.1) (2026-08-18)
 
 
