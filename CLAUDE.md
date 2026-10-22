@@ -30,7 +30,7 @@ uv run tox
 
 # Run specific test environments
 uv run tox -e lint    # Linting and type checking only
-uv run tox -e py313   # Tests with coverage
+uv run tox -e py314   # Tests with coverage
 
 # Manual linting and formatting
 uv run ruff format
@@ -86,7 +86,7 @@ The `checkers/` directory contains specialized analyzers:
 
 ## Development Notes
 
-- Python 3.13 only (strict version requirement: >=3.13,<3.14)
+- Python 3.13 or 3.14 (>=3.13,<3.15). spaCy 3.8 fails on 3.15 (explosion/spaCy#14047)
 - Uses uv for dependency management
 - Requires spaCy language models for German and English
 - Pre-commit hooks enforce code quality (ruff, mypy, security checks)

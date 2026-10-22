@@ -16,7 +16,7 @@ For each requirement a report will be generated with information about the compl
 
 
 # Prerequisites
-This project requires Python 3.13+ and uv for dependency management.
+This project requires Python 3.13 or 3.14 and uv for dependency management.
 
 ## Setup Environment
 ```bash
